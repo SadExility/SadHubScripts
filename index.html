@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -10,31 +11,130 @@
             font-family: Arial, sans-serif;
             color: white;
             overflow-x: hidden;
-        }/* Navbar */
-    .navbar {
-        width: 100%;
-        padding: 18px 0;
-        background: #111;
-        text-align: center;
-        font-size: 26px;
-        font-weight: bold;
-        letter-spacing: 1px;
-        box-shadow: 0 0 10px rgba(0,0,0,0.6);
-        position: sticky;
-        top: 0;
-        z-index: 100;
-    }
+        }
 
-    /* Container */
-    .container {
-        width: 90%;
-        max-width: 1000px;
-        margin: 40px auto;
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 25px;
-        animation: fadeIn 1s ease-in-out;
-    }
+        /* Navbar */
+        .navbar {
+            width: 100%;
+            padding: 18px 0;
+            background: #111;
+            text-align: center;
+            font-size: 26px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.6);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        /* Container */
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 40px auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        /* Cards */
+        .card {
+            background: #151515;
+            padding: 25px;
+            border-radius: 16px;
+            box-shadow: 0 0 12px rgba(0,0,0,0.5);
+            transition: transform 0.25s, box-shadow 0.25s;
+        }
+
+        .card:hover {
+            transform: scale(1.03);
+            box-shadow: 0 0 20px rgba(0,0,0,0.7);
+        }
+
+        .title {
+            font-size: 22px;
+            margin-bottom: 12px;
+            font-weight: bold;
+        }
+
+        .code-box {
+            background: #000;
+            padding: 14px;
+            border-radius: 10px;
+            font-family: monospace;
+            font-size: 14px;
+            white-space: pre-wrap;
+            overflow-x: auto;
+            border-left: 4px solid #007bff;
+        }
+
+        button {
+            margin-top: 14px;
+            padding: 10px 18px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 15px;
+            width: 100%;
+            transition: background 0.25s;
+        }
+
+        button:hover {
+            background: #005fcc;
+        }
+
+        /* Animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="navbar">SadExility - Script Hub</div>
+
+    <div class="container">
+
+        <div class="card">
+            <div class="title">SadHub: Steal a Brainrot</div>
+            <div class="code-box" id="code1">loadstring(game:HttpGet("https://raw.githubusercontent.com/SadExility/SadHub/refs/heads/main/SadHub%20Steal%20a%20Brainrot",true))()</div>
+            <button onclick="copyCode('code1')">Copy Script</button>
+        </div>
+
+        <div class="card">
+            <div class="title">SadHub: Camlock V2 (Open Source)</div>
+            <div class="code-box" id="code2">loadstring(game:HttpGet("https://raw.githubusercontent.com/SadExility/SadHub/refs/heads/main/SadHubV2",true))()</div>
+            <button onclick="copyCode('code2')">Copy Script</button>
+        </div>
+
+        <div class="card">
+            <div class="title">SadHub: Camlock V3 (The Best)</div>
+            <div class="code-box" id="code3">loadstring(game:HttpGet("https://raw.githubusercontent.com/SadExility/SadHub/refs/heads/main/SadHub%20Camlock%20V3",true))()</div>
+            <button onclick="copyCode('code3')">Copy Script</button>
+        </div>
+
+    </div>
+
+    <script>
+        function copyCode(id) {
+            const text = document.getElementById(id).innerText;
+
+            const temp = document.createElement("textarea");
+            temp.value = text;
+            document.body.appendChild(temp);
+            temp.select();
+            document.execCommand("copy");
+            document.body.removeChild(temp);
+        }
+    </script>
+
+</body>
+</html>    }
 
     /* Cards */
     .card {
