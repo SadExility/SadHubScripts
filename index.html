@@ -10,7 +10,7 @@
             font-family: Arial, sans-serif;
             color: white;
             overflow-x: hidden;
-        }/* Navbar */
+        }
     .navbar {
         width: 100%;
         padding: 18px 0;
@@ -25,7 +25,6 @@
         z-index: 100;
     }
 
-    /* Container */
     .container {
         width: 90%;
         max-width: 1000px;
@@ -36,7 +35,6 @@
         animation: fadeIn 1s ease-in-out;
     }
 
-    /* Cards */
     .card {
         background: #151515;
         padding: 25px;
@@ -84,7 +82,6 @@
         background: #005fcc;
     }
 
-    /* Animation */
     @keyframes fadeIn {
         from { opacity: 0; transform: translateY(20px); }
         to { opacity: 1; transform: translateY(0); }
@@ -114,28 +111,35 @@
         <button onclick="copyCode('code3')">Copy Script</button>
     </div>
 
+    <!-- NOVO SCRIPT ADICIONADO -->
+    <div class="card">
+        <div class="title">SadHub: MM2</div>
+        <div class="code-box" id="code4">loadstring(game:HttpGet("https://raw.githubusercontent.com/SadExility/SadHub/refs/heads/main/SadHub-MM2",true))()</div>
+        <button onclick="copyCode('code4')">Copy Script</button>
+    </div>
+
 </div>
 
 <script>
+function copyCode(id) {
+    const codeBox = document.getElementById(id);
 
-function copyCode(id) { const codeBox = document.getElementById(id);
+    const selection = window.getSelection();
+    const range = document.createRange();
+    range.selectNodeContents(codeBox);
+    selection.removeAllRanges();
+    selection.addRange(range);
 
-const selection = window.getSelection();
-const range = document.createRange();
-range.selectNodeContents(codeBox);
-selection.removeAllRanges();
-selection.addRange(range);
+    const temp = document.createElement("textarea");
+    temp.value = codeBox.innerText;
+    document.body.appendChild(temp);
+    temp.select();
+    document.execCommand("copy");
+    document.body.removeChild(temp);
 
-const temp = document.createElement("textarea");
-temp.value = codeBox.innerText;
-document.body.appendChild(temp);
-temp.select();
-document.execCommand("copy");
-document.body.removeChild(temp);
-
-setTimeout(() => selection.removeAllRanges(), 300);
-
-} </script>
+    setTimeout(() => selection.removeAllRanges(), 300);
+}
+</script>
 
 </body>
 </html>
